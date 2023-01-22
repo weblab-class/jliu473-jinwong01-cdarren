@@ -12,9 +12,9 @@ import api from "./api";
 dotenv.config({});
 
 // Server configuration below
-// TODO change connection URL after setting up your team database and creating the .env file
+// change connection URL after setting up your team database and creating the .env file
 const mongoConnectionURL = process.env.MONGO_SRV;
-// TODO change database name to the name you chose
+// change database name to the name you chose
 const databaseName = "Weblab";
 
 if (mongoConnectionURL === undefined) {
