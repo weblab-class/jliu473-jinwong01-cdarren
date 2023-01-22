@@ -21,19 +21,7 @@ const Skeleton = (props: Props) => {
   const { handleLogin, handleLogout } = props;
 
   return (
-    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
-      {props.userId ? (
-        <button
-          onClick={() => {
-            googleLogout();
-            handleLogout();
-          }}
-        >
-          Logout
-        </button>
-      ) : (
-        <GoogleLogin onSuccess={handleLogin} onError={() => console.log("Error Logging in")} />
-      )}
+    <div>
       <h1>Good luck on your project :)</h1>
       <h2> What we provide in this skeleton</h2>
       <ul>
@@ -51,7 +39,7 @@ const Skeleton = (props: Props) => {
         <li>Add a favicon to your website at the path client/dist/favicon.ico</li>
         <li>Update website title in client/dist/index.html</li>
       </ul>
-    </GoogleOAuthProvider>
+    </div>
   );
 };
 
