@@ -5,6 +5,7 @@ const EventSchema = new Schema({
   location: String,
   type: String,
   time: String,
+  description: String,
   guests: [
     {
       name: String,
@@ -22,6 +23,7 @@ export interface Event extends Document {
   location: string;
   type: string;
   time: string;
+  description: String;
   guests: [
     {
       name: String;
