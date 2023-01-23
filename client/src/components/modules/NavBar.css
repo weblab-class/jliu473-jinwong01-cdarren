@@ -1,14 +1,15 @@
 .NavBar-container {
   padding: var(--s) var(--m);
-  background-color: var(--white);
+  background-color: var(--primary);
 
   display: flex;
   justify-content: space-between;
 }
 
 .NavBar-title {
-  color: var(--primary);
+  color: var(--white);
   font-size: 25px;
+  padding: var(--s) 0px;
 }
 
 .NavBar-linkContainer {

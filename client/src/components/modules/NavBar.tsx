@@ -24,7 +24,7 @@ const GOOGLE_CLIENT_ID = "222848081969-93l6425mo8lhnqo2t9c8cecfa4058hvc.apps.goo
  */
 const NavBar = (props) => {
   return (
-    <nav className="NavBar-container u-inlineBlock">
+    <nav className="NavBar-container">
       <div className="NavBar-title u-bold u-inlineBlock">Gatherify</div>
       <div className="NavBar-linkContainer u-inlineBlock">
         <div className="u-inlineBlock">
