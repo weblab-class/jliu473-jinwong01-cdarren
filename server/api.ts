@@ -33,23 +33,30 @@ router.get("/events", (req, res) => {
 });
 
 router.post("/event", auth.ensureLoggedIn, (req, res) => {
-  if (req.user) {
-    const newEvent = new Event({
-      _id: req.query._id,
-      location: req.body.location,
-      type: req.body.type,
-      time: req.body.time,
-      description: req.body.description,
-      name: req.body.name,
-      guests: [],
-      creator: {
+  if (!req.user) {
+    return res.send({});
+  }
+
+  const newEvent = new Event({
+    _id: req.query._id,
+    location: req.body.location,
+    type: req.body.type,
+    time: req.body.time,
+    description: req.body.description,
+    name: req.body.name,
+    guests: [
+      {
         name: req.user.name,
         googleid: req.user.googleid,
       },
-    });
+    ],
+    creator: {
+      name: req.user.name,
+      googleid: req.user.googleid,
+    },
+  });
 
-    newEvent.save().then((event) => res.send(event));
-  }
+  newEvent.save().then((event) => res.send(event));
 });
 
 // anything else falls to this "not found" case
