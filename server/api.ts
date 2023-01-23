@@ -25,6 +25,33 @@ router.post("/initsocket", (req, res) => {
 // | write your API methods below!|
 // |------------------------------|
 
+const Event = require("./models/Event");
+const User = require("./models/User");
+
+router.get("/events", (req, res) => {
+  Event.find({ _id: req.query._id }).then((events) => res.send(events));
+});
+
+router.post("/event", auth.ensureLoggedIn, (req, res) => {
+  if (req.user) {
+    const newEvent = new Event({
+      _id: req.query._id,
+      location: req.body.location,
+      type: req.body.type,
+      time: req.body.time,
+      description: req.body.description,
+      name: req.body.name,
+      guests: [],
+      creator: {
+        name: req.user.name,
+        googleid: req.user.googleid,
+      },
+    });
+
+    newEvent.save().then((event) => res.send(event));
+  }
+});
+
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
   const msg = `Api route not found: ${req.method} ${req.url}`;

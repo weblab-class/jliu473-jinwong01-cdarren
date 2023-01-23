@@ -22,7 +22,7 @@ const GOOGLE_CLIENT_ID = "222848081969-93l6425mo8lhnqo2t9c8cecfa4058hvc.apps.goo
 /**
  * The navigation bar at the top of all pages.
  */
-const NavBar = (props) => {
+const NavBar = (props: Props) => {
   return (
     <nav className="NavBar-container">
       <div className="NavBar-title u-bold u-inlineBlock">Gatherify</div>
