@@ -1,7 +1,7 @@
 import { Schema, model, Document } from "mongoose";
 
 const EventSchema = new Schema({
-  id: String,
+  _id: String,
   location: String,
   type: String,
   time: String,
@@ -19,7 +19,7 @@ const EventSchema = new Schema({
 });
 
 export interface Event extends Document {
-  id: string;
+  _id: string;
   location: string;
   type: string;
   time: string;
