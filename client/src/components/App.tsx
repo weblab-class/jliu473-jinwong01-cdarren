@@ -13,6 +13,8 @@ import "../utilities.css";
 import NavBar from "./modules/NavBar";
 import Invite from "./pages/Invite";
 
+import Test from "./pages/Test";
+
 const App = () => {
   const [userId, setUserId] = useState<string | undefined>(undefined);
 
@@ -54,6 +56,7 @@ const App = () => {
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <Invite path="/invite/:id" />
+        <Test path="/test" />
         <NotFound default={true} />
       </Router>
     </>

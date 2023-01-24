@@ -1,18 +1,11 @@
 import { Schema, model, Document } from "mongoose";
 
 const EventSchema = new Schema({
-  _id: String,
   location: String,
   type: String,
   time: String,
   description: String,
   name: String,
-  guests: [
-    {
-      name: String,
-      googleid: String,
-    },
-  ],
   creator: {
     name: String,
     googleid: String,
@@ -26,13 +19,6 @@ export interface Event extends Document {
   time: string;
   description: String;
   name: String;
-  guests: [
-    {
-      name: String;
-      googleid: String;
-      _id: string;
-    }
-  ];
   creator: {
     name: String;
     googleid: String;

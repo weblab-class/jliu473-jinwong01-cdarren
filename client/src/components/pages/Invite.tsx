@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { RouteComponentProps } from "@reach/router";
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 
 import InviteCard from "../modules/InviteCard";
 
@@ -18,30 +18,14 @@ const Invite = (props) => {
   const [eventDescription, setEventDescription] = useState("");
 
   useEffect(() => {
-    get("/api/events", { _id: props.id }).then((event) => {
+    get("/api/events", { id: props.id }).then((event) => {
       setEventName(event.name);
       setEventDescription(event.description);
     });
   }, []);
 
   const acceptInvite = () => {
-    get("/api/events", { _id: props.id })
-      .then((event) => {
-        console.log("Accepted :)");
-        //   get("/api/whoami")
-        //     .then((user) => {
-        //       //   EventModel.updateOne(
-        //       //     { _id: event._id },
-        //       //     {
-        //       //       $set: {
-        //       //         guests: [user ? user.name : "Anonymous"].concat([event.guests]),
-        //       //       },
-        //       //     }
-        //       //   );
-        //       console.log("do stuff");
-        //     })
-      })
-      .catch((err) => console.log("Error :(", err.message));
+    post("/api/guest", { event_id: props.id }).then(() => console.log("Accepted :)"));
   };
 
   const declineInvite = () => {
@@ -58,28 +42,3 @@ const Invite = (props) => {
 };
 
 export default Invite;
-
-// POST API ENDPOINT TESTING
-//
-// const TEST_EVENT = {
-//     _id: "a",
-//     location: "Boston",
-//     type: "Food",
-//     time: "6:00",
-//     description: "Dinner",
-//     name: "Free Food",
-//     guests: [
-//       {
-//         name: "Bob",
-//         googleid: "b",
-//       },
-//     ],
-//     creator: {
-//       name: "Bob",
-//       googleid: "b",
-//     },
-//   };
-//   const addEvent = () => {
-//     post("/api/event", TEST_EVENT).then(() => console.log("Success :)"));
-//   };
-//   <button onClick={addEvent}>Add TEST_EVENT to database</button>
