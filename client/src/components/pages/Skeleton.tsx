@@ -5,7 +5,10 @@ import {
   googleLogout,
   CredentialResponse,
 } from "@react-oauth/google";
-import EventCreation from "../modules/EventCreation";
+import {useState, useEffect} from "react";
+
+//import EventDetails from "../modules/EventDetails";
+//import GuestsPanel from "../modules/GuestsPanel";
 
 
 import "./Skeleton.css";
@@ -21,10 +24,34 @@ type Props = RouteComponentProps & {
 };
 const Skeleton = (props: Props) => {
   const { handleLogin, handleLogout } = props;
+  //Events array state
+  const [ Events, setEvents] = useState([]);
+
+  //call when mounted
+  useEffect(() => {
+    document.title = "Event";
+
+  }, []);
 
   return (
     <div>
-      
+      <div>
+        <h1> Let's plan your gathering!</h1>
+        <h4> Name</h4>
+        {/* <input type = "text" value ={} onChange={handleInputChange}/> */}
+        {/* <button onClick = {submitTodo}>Add to-do!</button> */}
+        <h4> Type</h4>
+        <h4> Guests</h4>
+      </div>
+
+
+      <div>
+        <span> insert name</span>
+        <span> email</span>
+        <p> Add Guest</p>
+        <p>Generate event Link</p>
+      </div>
+
     </div>
   );
 };
