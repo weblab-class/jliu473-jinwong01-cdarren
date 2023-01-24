@@ -11,6 +11,7 @@ import User from "../../../shared/User";
 import "../utilities.css";
 
 import NavBar from "./modules/NavBar";
+import Invite from "./pages/Invite";
 
 const App = () => {
   const [userId, setUserId] = useState<string | undefined>(undefined);
@@ -52,6 +53,7 @@ const App = () => {
       <NavBar handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+        <Invite path="/invite/:id" />
         <NotFound default={true} />
       </Router>
     </>
