@@ -24,7 +24,6 @@ const Skeleton = (props: Props) => {
 
   return (
     <div>
-      <h1>Event Creation :)</h1>
       
     </div>
   );

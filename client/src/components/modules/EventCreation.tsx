@@ -1,6 +1,4 @@
 import React from "react";
-import NavBar from "./NavBar";
-
 
 
 import "./NavBar.css";
@@ -11,7 +9,7 @@ const EventCreation = (props) => {
         <div>
             <h1>Let's plan your gathering!</h1>
             <h3>Name</h3>
-        <div/>
+        </div>
     );
 };
 
