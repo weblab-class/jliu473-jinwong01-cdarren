@@ -44,7 +44,6 @@ router.post("/event", auth.ensureLoggedIn, (req, res) => {
     time: req.body.time,
     description: req.body.description,
     name: req.body.name,
-    guests: [req.user.name],
     creator: {
       name: req.user.name,
       googleid: req.user.googleid,
@@ -52,6 +51,11 @@ router.post("/event", auth.ensureLoggedIn, (req, res) => {
   });
 
   newEvent.save().then((event) => res.send(event));
+});
+
+router.get("/guests", (req, res) => {
+  Guest.find({}).then((guests) => res.send(guests));
+  //  add "event_id: req.body.event_id" as parameter (fix later)
 });
 
 router.post("/guest", (req, res) => {

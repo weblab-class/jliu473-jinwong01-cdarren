@@ -6,6 +6,7 @@ import "./InviteCard.css";
 type Props = RouteComponentProps & {
   name: String;
   description: String;
+  guestList: String[];
 };
 
 /**
@@ -15,8 +16,9 @@ type Props = RouteComponentProps & {
 const InviteCard = (props: Props) => {
   return (
     <div>
-      <div>{props.name ? props.name : "Event name"}</div>
-      <div>{props.description ? props.description : "Event description"}</div>
+      <div>Event Name: {props.name ? props.name : "Event name"}</div>
+      <div>Event Descripton: {props.description ? props.description : "Event description"}</div>
+      <div>Guest List: {props.guestList}</div>
     </div>
   );
 };

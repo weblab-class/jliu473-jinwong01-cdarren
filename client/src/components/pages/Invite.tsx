@@ -16,11 +16,17 @@ type Props = RouteComponentProps & {
 const Invite = (props) => {
   const [eventName, setEventName] = useState("");
   const [eventDescription, setEventDescription] = useState("");
+  const [guestList, setGuestList] = useState([]);
 
   useEffect(() => {
     get("/api/events", { id: props.id }).then((event) => {
       setEventName(event.name);
       setEventDescription(event.description);
+    });
+
+    get("/api/guests", { event_id: props.id }).then((guests) => {
+      const guestNames = guests.map((guest) => guest.name + ", ");
+      setGuestList(guestNames);
     });
   }, []);
 
@@ -34,7 +40,7 @@ const Invite = (props) => {
 
   return (
     <div>
-      <InviteCard name={eventName} description={eventDescription} />
+      <InviteCard name={eventName} description={eventDescription} guestList={guestList} />
       <button onClick={acceptInvite}>Accept</button>
       <button onClick={declineInvite}>Decline</button>
     </div>
