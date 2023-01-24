@@ -6,6 +6,7 @@ import { CredentialResponse } from "@react-oauth/google";
 import { get, post } from "../utilities";
 import NotFound from "./pages/NotFound";
 import Skeleton from "./pages/Skeleton";
+import EventDashboard from "./pages/EventDashboard";
 import { socket } from "../client-socket";
 import User from "../../../shared/User";
 import "../utilities.css";
@@ -48,6 +49,7 @@ const App = () => {
   return (
     <Router>
       <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+      <EventDashboard path="/EventDashboard" />
       <NotFound default={true} />
     </Router>
   );
