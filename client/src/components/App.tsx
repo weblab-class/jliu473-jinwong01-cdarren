@@ -5,7 +5,9 @@ import { CredentialResponse } from "@react-oauth/google";
 
 import { get, post } from "../utilities";
 import NotFound from "./pages/NotFound";
+import EventDashboard from "./pages/EventDashboard";
 import Home from "./pages/Home";
+
 import { socket } from "../client-socket";
 import User from "../../../shared/User";
 import "../utilities.css";
@@ -56,6 +58,7 @@ const App = () => {
       <Router>
         <Home path="/" userId={userId} />
         <Invite path="/invite/:id" />
+        <EventDashboard path="/EventDashboard/:id" />
         <Test path="/test" />
         <NotFound default={true} />
       </Router>
