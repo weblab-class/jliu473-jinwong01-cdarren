@@ -57,7 +57,7 @@ const App = () => {
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <Invite path="/invite/:id" />
-        <EventDashboard path="/EventDashboard" />
+        <EventDashboard path="/EventDashboard/:id" />
         <Test path="/test" />
         <NotFound default={true} />
       </Router>

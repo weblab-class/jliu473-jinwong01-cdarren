@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { RouteComponentProps } from "@reach/router";
 import "./EventDashboard.css";
+import { get, post } from "../../utilities";
 
-type Dashboard = RouteComponentProps;
-const EventDashboard = (props: Dashboard) => {
+type Dashboard = RouteComponentProps & {
+  id: String;
+};
+const EventDashboard = (Dashboard) => {
+  const [eventName, setEventName] = useState("");
+  const [eventDescription, setEventDescription] = useState("");
+
+  useEffect(() => {
+    get("/api/events", { id: Dashboard.id }).then((event) => {
+      setEventName(event.name);
+      setEventDescription(event.description);
+    });
+  }, []);
   return (
     <>
       <div>
-        <h1 className="Event-title"> "Event Title Here" </h1>
+        <h1 className="Event-title"> {eventName} Event Name </h1>
       </div>
 
       <div className="flex">
