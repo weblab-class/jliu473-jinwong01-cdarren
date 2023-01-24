@@ -58,7 +58,7 @@ const App = () => {
       <Router>
         <Home path="/" userId={userId} />
         <Invite path="/invite/:id" />
-        <EventDashboard path="/EventDashboard/:id" />
+        <EventDashboard path="/eventDashboard/:id" />
         <Test path="/test" />
         <NotFound default={true} />
       </Router>
