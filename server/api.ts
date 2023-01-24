@@ -1,6 +1,10 @@
 import express from "express";
 import auth from "./auth";
 import socketManager from "./server-socket";
+
+import Event from "./models/Event";
+import Guest from "./models/Guest";
+
 const router = express.Router();
 
 router.post("/login", auth.login);
@@ -24,6 +28,41 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
+
+router.get("/events", (req, res) => {
+  Event.findById(req.query.id).then((event) => res.send(event));
+});
+
+router.post("/event", auth.ensureLoggedIn, (req, res) => {
+  if (!req.user) {
+    return res.send({});
+  }
+
+  const newEvent = new Event({
+    location: req.body.location,
+    type: req.body.type,
+    time: req.body.time,
+    description: req.body.description,
+    name: req.body.name,
+    guests: [req.user.name],
+    creator: {
+      name: req.user.name,
+      googleid: req.user.googleid,
+    },
+  });
+
+  newEvent.save().then((event) => res.send(event));
+});
+
+router.post("/guest", (req, res) => {
+  const newGuest = new Guest({
+    name: req.user ? req.user.name : "Anonymous",
+    googleid: req.user ? req.user.googleid : null,
+    event_id: req.body.event_id,
+  });
+
+  newGuest.save().then(() => res.send(newGuest));
+});
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {

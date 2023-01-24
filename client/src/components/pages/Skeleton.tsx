@@ -9,8 +9,8 @@ import {
 import "./Skeleton.css";
 import { RouteComponentProps } from "@reach/router";
 
-//TODO(weblab student): REPLACE WITH YOUR OWN CLIENT_ID
-const GOOGLE_CLIENT_ID = "FILL ME IN";
+// REPLACE WITH YOUR OWN CLIENT_ID
+const GOOGLE_CLIENT_ID = "222848081969-93l6425mo8lhnqo2t9c8cecfa4058hvc.apps.googleusercontent.com";
 
 type Props = RouteComponentProps & {
   userId?: string;
@@ -21,20 +21,9 @@ const Skeleton = (props: Props) => {
   const { handleLogin, handleLogout } = props;
 
   return (
-    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
-      {props.userId ? (
-        <button
-          onClick={() => {
-            googleLogout();
-            handleLogout();
-          }}
-        >
-          Logout
-        </button>
-      ) : (
-        <GoogleLogin onSuccess={handleLogin} onError={() => console.log("Error Logging in")} />
-      )}
+    <div>
       <h1>Good luck on your project :)</h1>
+      <h2> hello </h2>
       <h2> What we provide in this skeleton</h2>
       <ul>
         <li>Google Auth (Skeleton.js & auth.js)</li>
@@ -51,7 +40,7 @@ const Skeleton = (props: Props) => {
         <li>Add a favicon to your website at the path client/dist/favicon.ico</li>
         <li>Update website title in client/dist/index.html</li>
       </ul>
-    </GoogleOAuthProvider>
+    </div>
   );
 };
 
