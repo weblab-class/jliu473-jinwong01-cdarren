@@ -1,6 +1,10 @@
 import express from "express";
 import auth from "./auth";
 import socketManager from "./server-socket";
+
+import Event from "./models/Event";
+import Guest from "./models/Guest";
+
 const router = express.Router();
 
 router.post("/login", auth.login);
@@ -25,11 +29,8 @@ router.post("/initsocket", (req, res) => {
 // | write your API methods below!|
 // |------------------------------|
 
-const Event = require("./models/Event");
-const User = require("./models/User");
-
 router.get("/events", (req, res) => {
-  Event.find({ _id: req.query._id }).then((events) => res.send(events));
+  Event.findById(req.query.id).then((event) => res.send(event));
 });
 
 router.post("/event", auth.ensureLoggedIn, (req, res) => {
@@ -38,18 +39,12 @@ router.post("/event", auth.ensureLoggedIn, (req, res) => {
   }
 
   const newEvent = new Event({
-    _id: req.query._id,
     location: req.body.location,
     type: req.body.type,
     time: req.body.time,
     description: req.body.description,
     name: req.body.name,
-    guests: [
-      {
-        name: req.user.name,
-        googleid: req.user.googleid,
-      },
-    ],
+    guests: [req.user.name],
     creator: {
       name: req.user.name,
       googleid: req.user.googleid,
@@ -57,6 +52,16 @@ router.post("/event", auth.ensureLoggedIn, (req, res) => {
   });
 
   newEvent.save().then((event) => res.send(event));
+});
+
+router.post("/guest", (req, res) => {
+  const newGuest = new Guest({
+    name: req.user ? req.user.name : "Anonymous",
+    googleid: req.user ? req.user.googleid : null,
+    event_id: req.body.event_id,
+  });
+
+  newGuest.save().then(() => res.send(newGuest));
 });
 
 // anything else falls to this "not found" case
