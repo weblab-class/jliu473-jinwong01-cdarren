@@ -25,7 +25,7 @@ const Invite = (props) => {
     });
 
     get("/api/guests", { event_id: props.id }).then((guests) => {
-      const guestNames = guests.map((guest) => guest.name);
+      const guestNames = guests.map((guest) => guest.name + ", ");
       setGuestList(guestNames);
     });
   }, []);

@@ -18,7 +18,7 @@ const InviteCard = (props: Props) => {
     <div>
       <div>Event Name: {props.name ? props.name : "Event name"}</div>
       <div>Event Descripton: {props.description ? props.description : "Event description"}</div>
-      <div>Guest list:{props.guestList}</div>
+      <div>Guest List: {props.guestList}</div>
     </div>
   );
 };
