@@ -54,6 +54,10 @@ router.post("/event", auth.ensureLoggedIn, (req, res) => {
   newEvent.save().then((event) => res.send(event));
 });
 
+router.get("/guests", (req, res) => {
+  Guest.find({ event_id: req.body.event_id }).then((guests) => res.send(guests));
+});
+
 router.post("/guest", (req, res) => {
   const newGuest = new Guest({
     name: req.user ? req.user.name : "Anonymous",

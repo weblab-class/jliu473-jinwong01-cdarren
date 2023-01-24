@@ -5,7 +5,7 @@ import { CredentialResponse } from "@react-oauth/google";
 
 import { get, post } from "../utilities";
 import NotFound from "./pages/NotFound";
-import Skeleton from "./pages/Skeleton";
+import Home from "./pages/Home";
 import { socket } from "../client-socket";
 import User from "../../../shared/User";
 import "../utilities.css";
@@ -54,7 +54,7 @@ const App = () => {
     <>
       <NavBar handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
       <Router>
-        <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+        <Home path="/" userId={userId} />
         <Invite path="/invite/:id" />
         <Test path="/test" />
         <NotFound default={true} />
