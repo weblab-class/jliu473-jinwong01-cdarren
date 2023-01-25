@@ -13,7 +13,7 @@ dotenv.config({});
 
 // Server configuration below
 // change connection URL after setting up your team database and creating the .env file
-const mongoConnectionURL = "MONGO_SRV";
+const mongoConnectionURL = process.env.MONGO_SRV;
 // change database name to the name you chose
 const databaseName = "Weblab";
 
