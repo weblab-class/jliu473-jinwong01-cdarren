@@ -44,6 +44,7 @@ const Home = (props: Props) => {
         <span> email</span>
         <p> Add Guest</p>
         <p>Generate event Link</p>
+        <p>Go to "url.com/eventDashboard/63d04f176b4498a42c9606f1 to test Event Dashboard page</p>
         <p>Go to "url.com/invite/63d04f176b4498a42c9606f1 to test Invite page</p>
       </div>
     </div>
