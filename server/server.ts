@@ -2,14 +2,14 @@ import express, { Request, Response } from "express";
 import http from "http";
 import session from "express-session"; // Allows us to store information about a client
 import mongoose from "mongoose"; // Wrapper around MongoDB
-import dotenv from "dotenv"; // Allows us to use environmental variables
 import morgan from "morgan"; // Request logger (https://github.com/expressjs/morgan). Can be removed if you wish.
 import path from "path"; // Allows us to retrieve file paths
 import auth from "./auth"; // weblab authentication helper
 import socketManager from "./server-socket"; // websockets
 import api from "./api";
+require('dotenv').config();
 // Loads environmental variables
-dotenv.config({});
+
 
 // Server configuration below
 // change connection URL after setting up your team database and creating the .env file
