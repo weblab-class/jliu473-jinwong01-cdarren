@@ -6,6 +6,7 @@ import { socket } from "../../client-socket";
 import InviteCard from "../modules/InviteCard";
 
 import "./Invite.css";
+import { socket } from "../../client-socket";
 
 type Props = RouteComponentProps & {
   id: String;
