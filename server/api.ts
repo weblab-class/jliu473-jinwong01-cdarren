@@ -64,7 +64,8 @@ router.post("/guest", (req, res) => {
     event_id: req.body.event_id,
   });
 
-  newGuest.save().then(() => res.send(newGuest));
+  newGuest.save().then((guest) => res.send(guest));
+  socketManager.getIo().emit("guest", newGuest);
 });
 
 // anything else falls to this "not found" case

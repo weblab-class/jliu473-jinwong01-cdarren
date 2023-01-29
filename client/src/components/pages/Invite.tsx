@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { RouteComponentProps } from "@reach/router";
 import { get, post } from "../../utilities";
+import { socket } from "../../client-socket";
 
 import InviteCard from "../modules/InviteCard";
 
@@ -18,16 +19,26 @@ const Invite = (props) => {
   const [eventDescription, setEventDescription] = useState("");
   const [guestList, setGuestList] = useState([]);
 
+  const loadGuestList = () => {
+    get("/api/guests", { event_id: props.id }).then((guests) => {
+      const guestNames = guests.map((guest) => guest.name);
+      setGuestList(guestNames.join(", "));
+    });
+  };
+
   useEffect(() => {
     get("/api/events", { id: props.id }).then((event) => {
       setEventName(event.name);
       setEventDescription(event.description);
     });
+  }, []);
 
-    get("/api/guests", { event_id: props.id }).then((guests) => {
-      const guestNames = guests.map((guest) => guest.name);
-      setGuestList(guestNames.join(", "));
-    });
+  useEffect(() => {
+    loadGuestList();
+  }, []);
+
+  useEffect(() => {
+    socket.on("guest", loadGuestList);
   }, []);
 
   const acceptInvite = () => {
