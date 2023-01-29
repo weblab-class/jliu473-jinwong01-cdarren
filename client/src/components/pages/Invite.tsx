@@ -39,6 +39,9 @@ const Invite = (props) => {
 
   useEffect(() => {
     socket.on("guest", loadGuestList);
+    return () => {
+      socket.off("guest");
+    };
   }, []);
 
   const acceptInvite = () => {
