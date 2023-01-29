@@ -9,7 +9,7 @@ const GuestSchema = new Schema({
 export interface Guest extends Document {
   name: string;
   googleid: string;
-  event_id: string;
+  // event_id: string;
   _id: string;
 }
 

@@ -54,8 +54,7 @@ router.post("/event", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.get("/guests", (req, res) => {
-  Guest.find({}).then((guests) => res.send(guests));
-  //  add "event_id: req.body.event_id" as parameter (fix later)
+  Guest.find({ event_id: req.query.event_id }).then((guests) => res.send(guests));
 });
 
 router.post("/guest", (req, res) => {
