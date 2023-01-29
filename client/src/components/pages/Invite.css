@@ -1,0 +1,40 @@
+.Invite-container {
+  margin-top: 40px;
+}
+
+.Invite-buttonContainer {
+  position: relative;
+  top: 80px;
+  text-align: center;
+}
+
+.Invite-acceptButton,
+.Invite-declineButton {
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  border: none;
+  box-shadow: 10px 5px 5px var(--darkgrey);
+}
+
+.Invite-acceptButton {
+  background-color: rgb(24, 176, 24);
+  margin-right: 10%;
+}
+
+.Invite-acceptButton:hover {
+  background: rgb(19, 141, 19);
+}
+
+.Invite-declineButton {
+  background-color: rgb(246, 52, 52);
+  margin-left: 10%;
+}
+
+.Invite-declineButton:hover {
+  background: rgb(228, 10, 10);
+}

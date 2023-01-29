@@ -53,10 +53,16 @@ const Invite = (props) => {
   };
 
   return (
-    <div>
+    <div className="Invite-container">
       <InviteCard name={eventName} description={eventDescription} guestList={guestList} />
-      <button onClick={acceptInvite}>Accept</button>
-      <button onClick={declineInvite}>Decline</button>
+      <div className="Invite-buttonContainer">
+        <button onClick={acceptInvite} className="Invite-acceptButton">
+          Accept
+        </button>
+        <button onClick={declineInvite} className="Invite-declineButton">
+          Decline
+        </button>
+      </div>
     </div>
   );
 };

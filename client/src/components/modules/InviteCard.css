@@ -1,0 +1,35 @@
+.InviteCard-container {
+  margin-top: var(--m);
+}
+
+.InviteCard-title {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 40px;
+  text-align: center;
+}
+
+.InviteCard-subContainer {
+  position: relative;
+  top: 20px;
+  border: var(--darkgrey) 2px solid;
+  box-shadow: 10px 5px 5px 1px var(--darkgrey);
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.InviteCard-textContainer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.InviteCard-subtitle {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+}
+
+.InviteCard-content {
+  text-align: center;
+}

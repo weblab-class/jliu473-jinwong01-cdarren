@@ -15,10 +15,18 @@ type Props = RouteComponentProps & {
 
 const InviteCard = (props: Props) => {
   return (
-    <div>
-      <div>Event Name: {props.name ? props.name : "Event name"}</div>
-      <div>Event Descripton: {props.description ? props.description : "Event description"}</div>
-      <div>Guest List: {props.guestList}</div>
+    <div className="InviteCard-container">
+      <div className="InviteCard-title">{props.name}</div>
+      <div className="InviteCard-subContainer">
+        <div className="InviteCard-textContainer">
+          <div className="InviteCard-subtitle">Event Descripton</div>
+          <div className="u-textCenter">{props.description}</div>
+        </div>
+        <div className="InviteCard-textContainer">
+          <div className="InviteCard-subtitle">Guest List</div>
+          <div className="u-textCenter">{props.guestList}</div>
+        </div>
+      </div>
     </div>
   );
 };
