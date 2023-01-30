@@ -1,0 +1,42 @@
+.InviteButtons-container,
+.InviteButtons-doneContainer {
+  position: relative;
+  top: 80px;
+  text-align: center;
+}
+
+.InviteButtons-doneContainer {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.InviteButtons-accept,
+.InviteButtons-decline {
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  border: none;
+  box-shadow: 10px 5px 5px var(--darkgrey);
+}
+
+.InviteButtons-accept {
+  background-color: rgb(24, 176, 24);
+  margin-right: 10%;
+}
+
+.InviteButtons-accept:hover {
+  background: rgb(19, 141, 19);
+}
+
+.InviteButtons-decline {
+  background-color: rgb(246, 52, 52);
+  margin-left: 10%;
+}
+
+.InviteButtons-decline:hover {
+  background: rgb(228, 10, 10);
+}

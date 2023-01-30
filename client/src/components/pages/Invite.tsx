@@ -4,6 +4,7 @@ import { get, post } from "../../utilities";
 import { socket } from "../../client-socket";
 
 import InviteCard from "../modules/InviteCard";
+import InviteButtons from "../modules/InviteButtons";
 
 import "./Invite.css";
 
@@ -18,6 +19,8 @@ const Invite = (props) => {
   const [eventName, setEventName] = useState("");
   const [eventDescription, setEventDescription] = useState("");
   const [guestList, setGuestList] = useState([]);
+  const [accepted, setAccepted] = useState(false);
+  const [declined, setDeclined] = useState(false);
 
   const loadGuestList = () => {
     get("/api/guests", { event_id: props.id }).then((guests) => {
@@ -46,23 +49,23 @@ const Invite = (props) => {
 
   const acceptInvite = () => {
     post("/api/guest", { event_id: props.id }).then(() => console.log("Accepted :)"));
+    setAccepted(true);
   };
 
   const declineInvite = () => {
     console.log("Declined :(");
+    setDeclined(true);
   };
 
   return (
     <div className="Invite-container">
       <InviteCard name={eventName} description={eventDescription} guestList={guestList} />
-      <div className="Invite-buttonContainer">
-        <button onClick={acceptInvite} className="Invite-acceptButton">
-          Accept
-        </button>
-        <button onClick={declineInvite} className="Invite-declineButton">
-          Decline
-        </button>
-      </div>
+      <InviteButtons
+        acceptInvite={acceptInvite}
+        declineInvite={declineInvite}
+        accepted={accepted}
+        declined={declined}
+      />
     </div>
   );
 };
