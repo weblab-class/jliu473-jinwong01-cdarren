@@ -31,6 +31,7 @@ const NavBar = (props: Props) => {
           <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
             {props.userId ? (
               <button
+                className="NavBar-logout"
                 onClick={() => {
                   googleLogout();
                   props.handleLogout();

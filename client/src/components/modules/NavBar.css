@@ -39,3 +39,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+.NavBar-logout {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  margin-top: 10px;
+  cursor: pointer;
+}
