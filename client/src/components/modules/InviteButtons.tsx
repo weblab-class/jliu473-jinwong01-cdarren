@@ -12,7 +12,7 @@ type Props = RouteComponentProps & {
 
 const InviteButtons = (props: Props) => {
   if (props.accepted) return <div className="InviteButtons-doneContainer">Accepted! :)</div>;
-  else if (props.declined) return <div className="InviteButtons-doneContainer">Declined :)</div>;
+  else if (props.declined) return <div className="InviteButtons-doneContainer">Declined :(</div>;
   return (
     <div className="InviteButtons-container">
       <button onClick={props.acceptInvite} className="InviteButtons-accept">
