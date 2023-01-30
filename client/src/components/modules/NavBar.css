@@ -10,6 +10,8 @@
   color: var(--white);
   font-size: 25px;
   padding: var(--s) 0px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .NavBar-linkContainer {
