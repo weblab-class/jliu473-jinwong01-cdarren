@@ -8,7 +8,9 @@ import {
 } from "@react-oauth/google";
 
 import "./NavBar.css";
-import { RouteComponentProps } from "@reach/router";
+import { RouteComponentProps, Router } from "@reach/router";
+import EventDashboard from "../pages/EventDashboard";
+import Invite from "../pages/Invite";
 
 type Props = RouteComponentProps & {
   userId?: string;
@@ -28,6 +30,10 @@ const NavBar = (props: Props) => {
       <div className="NavBar-title u-bold u-inlineBlock">Gatherify</div>
       <div className="NavBar-linkContainer u-inlineBlock">
         <div className="u-inlineBlock">
+          <Router> 
+            <Invite path="/invite"/>
+            <EventDashboard path ="/event"/>
+          </Router>
           <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
             {props.userId ? (
               <button

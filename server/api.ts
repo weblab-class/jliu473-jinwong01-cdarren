@@ -50,6 +50,8 @@ router.post("/event", auth.ensureLoggedIn, (req, res) => {
     },
   });
 
+  console.log(newEvent);
+
   newEvent.save().then((event) => res.send(event));
 });
 
