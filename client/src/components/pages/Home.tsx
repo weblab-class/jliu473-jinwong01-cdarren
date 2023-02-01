@@ -74,45 +74,45 @@ const Home = (props: Props) => {
   return (
     <div>
       <div>
-        <h1 className="title"> Let's plan your gathering!</h1>
-        <h4 className="input-description"> Event Name</h4>
+        <h1 className="Title"> Let's plan your gathering!</h1>
+        <h4 className="Input-description"> Event Name</h4>
         <input
-          className="input-box"
+          className="Input-box"
           type="text"
           placeholder="Name"
           value={name}
           onChange={handleChangeName}
           required
         />
-        <h4 className="input-description">Date</h4>
+        <h4 className="Input-description">Date</h4>
         {/* check if date is set or not, assume set for now */}
         <input
-          className="input-box"
+          className="Input-box"
           type="date"
           placeholder="input Date"
           value={date}
           onChange={handleChangeDate}
         ></input>
-        <h4 className="input-description">Time </h4>
+        <h4 className="Input-description">Time </h4>
         <input
-          className="input-box"
+          className="Input-box"
           type="time"
           placeholder="Time"
           value={time}
           onChange={handleChangeTime}
         />
-        <h4 className="input-description">Location </h4>
+        <h4 className="Input-description">Location </h4>
         {/* google maps api */}
         <input
-          className="input-box"
+          className="Input-box"
           type="text"
           placeholder="Location"
           value={location}
           onChange={handleChangeLocation}
         />
-        <h4 className="input-description">Description</h4>
+        <h4 className="Input-description">Description</h4>
         <input
-          className="input-box"
+          className="Input-box"
           type="text"
           placeholder="Description"
           value={description}
@@ -121,7 +121,7 @@ const Home = (props: Props) => {
         {/* logic so it throws error if no event name */}
 
         <button
-          className="create-event-button"
+          className="Create-event-button"
           type="submit"
           value="Create Event"
           onClick={handleSubmit}

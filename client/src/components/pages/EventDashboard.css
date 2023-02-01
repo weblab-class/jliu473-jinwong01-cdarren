@@ -1,12 +1,15 @@
 .Event-title {
   display: flex;
   justify-content: center;
+  color: var(--primary);
 }
 
 .flex {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--primary);
+  font-size: x-large;
 }
 .Event-content {
   padding: 18px;
@@ -15,4 +18,29 @@
 .Edit-button {
   padding: 20px;
   border-radius: 18px;
+}
+
+.Event-invite {
+  font-size: large;
+  color: var(--primary);
+  font-weight: bold;
+  padding-bottom: 18px;
+}
+
+.Invite-link {
+  font-size: large;
+  color: var(--primary);
+  padding-bottom: 18px;
+}
+
+.Link-button {
+  padding-top: 18px;
+  background-color: #ef5c5c;
+  font-size: large;
+  color: white;
+  border-radius: 8px;
+}
+
+.Invite-link-content {
+  text-align: center;
 }

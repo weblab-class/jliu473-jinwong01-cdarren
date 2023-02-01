@@ -26,7 +26,7 @@ const EventDashboard = (props) => {
       setDescription(event.description);
     });
 
-    get("/api/guests", {event_id: props.id}).then((guests) => {
+    get("/api/guests", { event_id: props.id }).then((guests) => {
       setGuests(guests);
     });
   }, []);

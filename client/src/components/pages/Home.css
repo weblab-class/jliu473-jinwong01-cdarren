@@ -1,17 +1,17 @@
 /* Fill me in :) */
-.title {
+.Title {
   font-size: xx-large;
   text-align: center;
   color: var(--primary);
 }
 
-.input-description {
+.Input-description {
   margin-left: 5%;
   color: var(--primary);
   font-size: x-large;
 }
 
-.input-box {
+.Input-box {
   color: #ef5c5c;
   font-size: 25px;
   margin-left: 5%;
@@ -20,7 +20,7 @@
   border-radius: 8px;
 }
 
-.create-event-button {
+.Create-event-button {
   padding: 8px;
   background-color: #ef5c5c;
   font-size: large;
@@ -29,6 +29,6 @@
   margin-left: 18px;
 }
 
-.input-box::placeholder {
+.Input-box::placeholder {
   color: #ef5c5c;
 }
