@@ -62,7 +62,7 @@ const Home = (props: Props) => {
     post("/api/event", body).then((comment) => {
       console.log(comment);
       console.log(comment._id);
-      navigate(`/eventDashboard/${comment._id}`);
+      navigate(`/event/${comment._id}`);
       // setId(comment._id);
     });
   }

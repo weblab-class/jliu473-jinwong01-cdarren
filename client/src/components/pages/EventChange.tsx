@@ -34,12 +34,14 @@ const EventChange = (props) => {
       {/* Event Details */}
       <div className="flex">
         <div> Event Change</div>
-        {/* <div className="Event-content"> Event Date: {date}</div>
+        <div className="Event-content"> Event Date: {date}</div>
+        
         <div className="Event-content">Event Time: {time}</div>
         <div className="Event-content">Event Location: {location}</div>
         <div className="Event-content">Event Description: {description}</div>
         <div className="Event-content">"Guests Attending:"</div>
-        <button className="Edit-button" onSubmit = {}>Edit Event </button> */}
+        <button className="Edit-button" onSubmit = {}>Edit Event </button>
+
       </div>
 
       {/* Invite Link */}
