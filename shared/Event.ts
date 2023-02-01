@@ -1,3 +1,3 @@
-import { Event } from "../server/models/Event";
+import Event from "../server/models/Event";
 
 export default Event;
