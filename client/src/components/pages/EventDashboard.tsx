@@ -31,7 +31,7 @@ const EventDashboard = (props) => {
       <div>
         <h1 className="Event-title"> {name}</h1>
       </div>
-      {/* Event Details
+      Event Details
       <div className="flex">
         <div className="Event-content"> Event Date: {date}</div>
         <div className="Event-content">Event Time: {time}</div>
@@ -39,7 +39,7 @@ const EventDashboard = (props) => {
         <div className="Event-content">Event Description: {description}</div>
         <div className="Event-content">"Guests Attending:"</div>
       
-      </div> */}
+      </div>
 
       {/* Invite Link
       <div> Here is your invite link</div>
