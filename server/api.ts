@@ -2,7 +2,7 @@ import express from "express";
 import auth from "./auth";
 import socketManager from "./server-socket";
 
-import Event from "./models/Event";
+import EventModel from "./models/Event";
 import Guest from "./models/Guest";
 
 const router = express.Router();
@@ -30,7 +30,7 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 
 router.get("/events", (req, res) => {
-  Event.findById(req.query.id).then((event) => res.send(event));
+  EventModel.findById(req.query.id).then((event) => res.send(event));
 });
 
 router.post("/event", auth.ensureLoggedIn, (req, res) => {
@@ -38,9 +38,9 @@ router.post("/event", auth.ensureLoggedIn, (req, res) => {
     return res.send({});
   }
 
-  const newEvent = new Event({
+  const newEvent = new EventModel({
     location: req.body.location,
-    type: req.body.type,
+    date: req.body.date,
     time: req.body.time,
     description: req.body.description,
     name: req.body.name,
@@ -50,9 +50,14 @@ router.post("/event", auth.ensureLoggedIn, (req, res) => {
     },
   });
 
-  console.log(newEvent);
-
   newEvent.save().then((event) => res.send(event));
+});
+
+router.post('/change/:id', (req, res) => {
+  EventModel.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, event) => {
+    if (err) return res.status(500).send(err);
+    return res.send(event);
+  });
 });
 
 router.get("/guests", (req, res) => {
