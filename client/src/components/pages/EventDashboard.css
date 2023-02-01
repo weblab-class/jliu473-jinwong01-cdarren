@@ -34,7 +34,7 @@
 }
 
 .Link-button {
-  padding-top: 18px;
+  padding: 18px;
   background-color: #ef5c5c;
   font-size: large;
   color: white;
@@ -42,5 +42,6 @@
 }
 
 .Invite-link-content {
+  padding-top: 88px;
   text-align: center;
 }
