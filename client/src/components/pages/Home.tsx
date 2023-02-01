@@ -89,20 +89,35 @@ const Home = (props: Props) => {
       <div>
         <h1 className="title"> Let's plan your gathering!</h1>
         <h4 className="input-description"> Event Name</h4>
-        <input type="text" placeholder="Name" value={name} onChange={handleChangeName} required />
+        <input
+          className="input-box"
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={handleChangeName}
+          required
+        />
         <h4 className="input-description">Date</h4>
         {/* check if date is set or not, assume set for now */}
         <input
+          className="input-box"
           type="date"
           placeholder="input Date"
           value={date}
           onChange={handleChangeDate}
         ></input>
         <h4 className="input-description">Time </h4>
-        <input type="time" placeholder="Time" value={time} onChange={handleChangeTime} />
+        <input
+          className="input-box"
+          type="time"
+          placeholder="Time"
+          value={time}
+          onChange={handleChangeTime}
+        />
         <h4 className="input-description">Location </h4>
         {/* google maps api */}
         <input
+          className="input-box"
           type="text"
           placeholder="Location"
           value={location}
@@ -110,6 +125,7 @@ const Home = (props: Props) => {
         />
         <h4 className="input-description">Description</h4>
         <input
+          className="input-box"
           type="text"
           placeholder="Description"
           value={description}

@@ -5,13 +5,21 @@
   color: var(--primary);
 }
 
-.flex {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .input-description {
+  margin-left: 5%;
   color: var(--primary);
   font-size: x-large;
+}
+
+.input-box {
+  color: #ef5c5c;
+  font-size: 25px;
+  margin-left: 5%;
+  padding: 8px;
+  width: 40%;
+  border-radius: 8px;
+}
+
+.input-box::placeholder {
+  color: #ef5c5c;
 }
