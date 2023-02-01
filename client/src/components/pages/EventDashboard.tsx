@@ -15,7 +15,7 @@ const EventDashboard = (props) => {
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
   const [currentComponent, setCurrentComponent] = useState("EventDashboard");
-  const [guests, setGuests] = useState([]);
+  const [guestList, setGuestList] = useState([]);
 
   useEffect(() => {
     get("/api/events", { id: props.id }).then((event) => {
@@ -26,9 +26,12 @@ const EventDashboard = (props) => {
       setDescription(event.description);
     });
 
-    get("/api/guests", {event_id: props.id}).then((guests) => {
-      setGuests(guests);
+    get("/api/guests", { event_id: props.id }).then((guests) => {
+      const guestNames = guests.map((guest) => guest.name);
+      setGuestList(guestNames.join(", "));
     });
+
+
   }, []);
 
   return (
@@ -43,7 +46,7 @@ const EventDashboard = (props) => {
         <div className="Event-content">Event Location: {location}</div>
         <div className="Event-content">Event Description: {description}</div>
         <div className="Event-content">"Guests Attending:"</div>
-        {guests}
+        {guestList}
       </div>
     </>
   );
