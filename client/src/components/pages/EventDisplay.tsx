@@ -36,16 +36,15 @@ const EventDisplay = (props) => {
 
       {/* Change Button */} 
       <div>
-        <Link to={"/editevent/" + props.id}>
+        {/* <Link to={"/editevent/" + props.id}>
           <button className="Edit-button"> Edit Event </button>
-        </Link>
+        </Link> */}
       </div> 
 
       {/* Invite Link */}
       <div> Here is your invite link</div>
       <div> gatherify.herokuapp.com/invite/{props.id}</div>
       <CopyLinkButton link = "gatherify.herokuapp.com/invite/" eventId = {props.id}></CopyLinkButton>
-
     </>
   );
 };

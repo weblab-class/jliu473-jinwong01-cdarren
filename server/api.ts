@@ -53,8 +53,8 @@ router.post("/event", auth.ensureLoggedIn, (req, res) => {
   newEvent.save().then((event) => res.send(event));
 });
 
-router.post('/change/:id', (req, res) => {
-  EventModel.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, event) => {
+router.post('/change/:eventid', (req, res) => {
+  EventModel.findByIdAndUpdate(req.body.event_id, req.body, (err, event) => {
     if (err) return res.status(500).send(err);
     return res.send(event);
   });

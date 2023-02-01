@@ -56,7 +56,7 @@ const Home = (props: Props) => {
       alert("Event Name is required");
       return;
     }
-    const body = { name: name, location: location, time: time, description: description };
+    const body = { name: name, date: date, location: location, time: time, description: description };
     event.preventDefault();
     post("/api/event", body).then((comment) => {
       console.log(comment);

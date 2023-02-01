@@ -46,21 +46,46 @@ const EventChange = (props) => {
       return;
     }
 
-    const body = {name:name, location: location, time: time, description: description};
+    const body = {   name:name, location: location, time: time, description: description};
     event.preventDefault();
-    post("/change/" + props.id, body).then((comment) => {
-      console.log("Event updated!");
+    // post("/change", body).then((comment) => {
+    //   console.log("Event updated!");
+    // });
+
+    const id = props.id;
+    const url = `/change/`;
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(body),
+    };
+
+    fetch(url, options)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then(updatedEvent => {
+      // do something with the updated event
+      console.log(updatedEvent);
+    })
+    .catch(error => {
+      console.error("There was a problem with the fetch operation:", error);
     });
   }
 
   return (
     <>
-      <div>
-        <h1 className="Event-title"> {name}</h1>
-      </div>
       {/* Event Details */}
+      {props.id}
       <div className="flex">
         <div> Event Change</div>
+        <div className="Event-content"> Event Name: {date}</div>
         <input type = "text" placeholder = {props.id.name} value ={name} onChange={handleChangeName} required/>
         <div className="Event-content"> Event Date: {date}</div>
         <input type = "date" placeholder = {props.id.date}value = {date} onChange = {handleChangeDate}></input>

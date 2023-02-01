@@ -40,12 +40,6 @@ const EventDashboard = (props) => {
         <div className="Event-content">"Guests Attending:"</div>
       
       </div>
-
-      {/* Invite Link
-      <div> Here is your invite link</div>
-      <div> gatherify.herokuapp.com/invite/{props.id}</div>
-      <CopyLinkButton link = "gatherify.herokuapp.com/invite/" eventId = {props.id}></CopyLinkButton> */}
-
     </>
   );
 };
