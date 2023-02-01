@@ -13,6 +13,6 @@ const EventSchema = new Schema({
   },
 });
 
-const EventModel = model<Event>("Event", EventSchema);
+const Event = model<Event>("Event", EventSchema);
 
-export default EventModel;
+export default Event;

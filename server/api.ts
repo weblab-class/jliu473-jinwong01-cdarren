@@ -2,7 +2,7 @@ import express from "express";
 import auth from "./auth";
 import socketManager from "./server-socket";
 
-import EventModel from "./models/Event";
+import Event from "./models/Event";
 import Guest from "./models/Guest";
 
 const router = express.Router();
@@ -30,7 +30,7 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 
 router.get("/events", (req, res) => {
-  EventModel.findById(req.query.id).then((event) => res.send(event));
+  Event.findById(req.query.id).then((event) => res.send(event));
 });
 
 router.post("/event", auth.ensureLoggedIn, (req, res) => {
@@ -38,7 +38,7 @@ router.post("/event", auth.ensureLoggedIn, (req, res) => {
     return res.send({});
   }
 
-  const newEvent = new EventModel({
+  const newEvent = new Event({
     location: req.body.location,
     date: req.body.date,
     time: req.body.time,
@@ -54,7 +54,7 @@ router.post("/event", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.post('/change/:eventid', (req, res) => {
-  EventModel.findByIdAndUpdate(req.body.event_id, req.body, (err, event) => {
+  Event.findByIdAndUpdate(req.body.event_id, req.body, (err, event) => {
     if (err) return res.status(500).send(err);
     return res.send(event);
   });
