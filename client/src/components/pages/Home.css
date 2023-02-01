@@ -20,6 +20,15 @@
   border-radius: 8px;
 }
 
+.create-event-button {
+  padding: 8px;
+  background-color: #ef5c5c;
+  font-size: large;
+  color: white;
+  border-radius: 8px;
+  margin-left: 18px;
+}
+
 .input-box::placeholder {
   color: #ef5c5c;
 }

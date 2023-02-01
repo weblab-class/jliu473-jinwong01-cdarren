@@ -132,8 +132,14 @@ const Home = (props: Props) => {
           onChange={handleChangeDescription}
         />
         {/* logic so it throws error if no event name */}
-        <button type="submit" value="Create Event" onClick={handleSubmit}>
-          Submit
+
+        <button
+          className="create-event-button"
+          type="submit"
+          value="Create Event"
+          onClick={handleSubmit}
+        >
+          Create Event
         </button>
         {/* <h4> Guests</h4> */}
       </div>
