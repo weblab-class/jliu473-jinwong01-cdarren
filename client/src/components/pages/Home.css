@@ -1,1 +1,17 @@
 /* Fill me in :) */
+.title {
+  font-size: xx-large;
+  text-align: center;
+  color: var(--primary);
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-description {
+  color: var(--primary);
+  font-size: x-large;
+}

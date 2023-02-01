@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import EventDashboard from "./EventDashboard";
 
 import "./Home.css";
-import { RouteComponentProps, Link, Router, navigate, } from "@reach/router";
+import { RouteComponentProps, Link, Router, navigate } from "@reach/router";
 import { setConstantValue } from "typescript";
 import { post } from "../../utilities";
 
@@ -17,7 +17,7 @@ import { post } from "../../utilities";
 const GOOGLE_CLIENT_ID = "222848081969-93l6425mo8lhnqo2t9c8cecfa4058hvc.apps.googleusercontent.com";
 
 type Props = RouteComponentProps & {
-  userId?: string,
+  userId?: string;
 };
 const Home = (props: Props) => {
   //states
@@ -26,7 +26,6 @@ const Home = (props: Props) => {
   const [time, setTime] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
-
 
   const [id, setId] = useState("");
 
@@ -37,27 +36,27 @@ const Home = (props: Props) => {
 
   const handleChangeLocation = (event) => {
     setLocation(event.target.value);
-  }
+  };
 
   const handleChangeTime = (event) => {
     setTime(event.target.value);
-  }
+  };
 
   const handleChangeDate = (event) => {
     setDate(event.target.value);
-  }
+  };
 
   const handleChangeDescription = (event) => {
     setDescription(event.target.value);
-  }
+  };
 
   const handleSubmit = (event) => {
     // if there's no name, make site reload
-    if (!name){
+    if (!name) {
       alert("Event Name is required");
       return;
     }
-    const body = {name:name, location: location, time: time, description: description};
+    const body = { name: name, location: location, time: time, description: description };
     event.preventDefault();
     post("/api/event", body).then((comment) => {
       console.log(comment);
@@ -65,8 +64,8 @@ const Home = (props: Props) => {
       navigate(`/eventDashboard/${comment._id}`);
       // setId(comment._id);
     });
-  }
-    //autocomplete location input field
+  };
+  //autocomplete location input field
   // useEffect(() => {
   //   const autocompleteService = new window.google.maps.places.AutocompleteService();
   //   autocompleteService.getPlacePredictions(
@@ -88,21 +87,38 @@ const Home = (props: Props) => {
   return (
     <div>
       <div>
-        <h1> Let's plan your gathering!</h1>
-        <h4> Event Name *required</h4>
-        <input type = "text" placeholder = "Name" value ={name} onChange={handleChangeName} required/>
-        <h4>Date</h4> 
+        <h1 className="title"> Let's plan your gathering!</h1>
+        <h4 className="input-description"> Event Name</h4>
+        <input type="text" placeholder="Name" value={name} onChange={handleChangeName} required />
+        <h4 className="input-description">Date</h4>
         {/* check if date is set or not, assume set for now */}
-        <input type = "date" placeholder = "input Date" value = {date} onChange = {handleChangeDate}></input>
-        <h4>Time </h4>
-        <input type = "time" placeholder = "Time" value ={time} onChange={handleChangeTime}/>
-        <h4>Location </h4>
+        <input
+          type="date"
+          placeholder="input Date"
+          value={date}
+          onChange={handleChangeDate}
+        ></input>
+        <h4 className="input-description">Time </h4>
+        <input type="time" placeholder="Time" value={time} onChange={handleChangeTime} />
+        <h4 className="input-description">Location </h4>
         {/* google maps api */}
-        <input type = "text" placeholder = "Location" value ={location} onChange={handleChangeLocation}/>
-        <h4>Description</h4>
-        <input type = "text" placeholder = "Description" value ={description} onChange={handleChangeDescription}/>
+        <input
+          type="text"
+          placeholder="Location"
+          value={location}
+          onChange={handleChangeLocation}
+        />
+        <h4 className="input-description">Description</h4>
+        <input
+          type="text"
+          placeholder="Description"
+          value={description}
+          onChange={handleChangeDescription}
+        />
         {/* logic so it throws error if no event name */}
-        <button type = "submit" value = "Create Event" onClick = {handleSubmit}>Submit</button>
+        <button type="submit" value="Create Event" onClick={handleSubmit}>
+          Submit
+        </button>
         {/* <h4> Guests</h4> */}
       </div>
 
