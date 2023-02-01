@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, RouteComponentProps } from "@reach/router";
-import "./EventDashboard.css";
+import EventDashboard from "./EventDashboard.tsx";
 import { get, post } from "../../utilities";
 import CopyLinkButton from "../modules/CopyLinkButton";
-import "./EventChange";
+import EventChange from "./EventChange.tsx";
 
 type Dashboard = RouteComponentProps & {
   id: String;
 };
-const EventDashboard = (props) => {
+const EventDisplay = (props) => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -29,20 +29,18 @@ const EventDashboard = (props) => {
   return (
     <>
       <div>
-        <h1 className="Event-title"> {name}</h1>
-      </div>
+      {currentComponent === 'EventDashboard' ? (<EventDashboard/>) : (<EventChange></EventChange>)}
+      </div> 
       {/* Event Details
-      <div className="flex">
-        <div className="Event-content"> Event Date: {date}</div>
-        <div className="Event-content">Event Time: {time}</div>
-        <div className="Event-content">Event Location: {location}</div>
-        <div className="Event-content">Event Description: {description}</div>
-        <div className="Event-content">"Guests Attending:"</div>
-      
+
+
+      {/* Change Button
+      <div>
+        <button className="Edit-button" onClick = {() => setCurrentComponent(currentComponent === 'A' ? 'B' : 'A')}>Edit Event </button>
       </div> */}
 
-      {/* Invite Link
-      <div> Here is your invite link</div>
+      {/* Invite Link */}
+      {/* <div> Here is your invite link</div>
       <div> gatherify.herokuapp.com/invite/{props.id}</div>
       <CopyLinkButton link = "gatherify.herokuapp.com/invite/" eventId = {props.id}></CopyLinkButton> */}
 
@@ -50,4 +48,4 @@ const EventDashboard = (props) => {
   );
 };
 
-export default EventDashboard;
+export default EventDisplay;

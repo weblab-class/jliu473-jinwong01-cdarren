@@ -7,6 +7,7 @@ import { get, post } from "../utilities";
 import NotFound from "./pages/NotFound";
 import EventDashboard from "./pages/EventDashboard";
 import Home from "./pages/Home";
+import EventDisplay from "./pages/EventDisplay";
 
 import { socket } from "../client-socket";
 import User from "../../../shared/User";
@@ -58,7 +59,7 @@ const App = () => {
       <Router>
         <Home path="/" userId={userId} />
         <Invite path="/invite/:id" />
-        <EventDashboard path="/eventDashboard/:id" />
+        <EventDisplay path="/eventDashboard/:id" />
         <Test path="/test" />
         <NotFound default={true} />
       </Router>

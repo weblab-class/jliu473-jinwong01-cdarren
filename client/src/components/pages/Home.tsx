@@ -22,10 +22,11 @@ type Props = RouteComponentProps & {
 const Home = (props: Props) => {
   //states
   const [name, setName] = useState("");
-  const [location, setLocation] = useState("");
+  const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [date, setDate] = useState(new Date());
+  const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+
 
   const [id, setId] = useState("");
 
@@ -42,24 +43,42 @@ const Home = (props: Props) => {
     setTime(event.target.value);
   }
 
+  const handleChangeDate = (event) => {
+    setDate(event.target.value);
+  }
+
   const handleChangeDescription = (event) => {
     setDescription(event.target.value);
   }
 
   const handleSubmit = (event) => {
+    // if there's no name, make site reload
+    if (!name){
+      alert("Event Name is required");
+      return;
+    }
     const body = {name:name, location: location, time: time, description: description};
     event.preventDefault();
     post("/api/event", body).then((comment) => {
       console.log(comment);
       console.log(comment._id);
       navigate(`/eventDashboard/${comment._id}`);
-      setId(comment._id);
-      console.log(id);
+      // setId(comment._id);
     });
-    // setName("");
-    // 
   }
-
+    //autocomplete location input field
+  // useEffect(() => {
+  //   const autocompleteService = new window.google.maps.places.AutocompleteService();
+  //   autocompleteService.getPlacePredictions(
+  //     { input: location },
+  //     (predictions, status) => {
+  //       if (status !== window.google.maps.places.PlacesServiceStatus.OK) {
+  //         return;
+  //       }
+  //       setPlaces(predictions.map((prediction) => prediction.description));
+  //     }
+  //   );
+  // }, [location]);
 
   // //call when mounted
   // useEffect(() => {
@@ -70,16 +89,19 @@ const Home = (props: Props) => {
     <div>
       <div>
         <h1> Let's plan your gathering!</h1>
-        <h4> Name * </h4>
-        <input type = "text" placeholder = "input Name" value ={name} onChange={handleChangeName}/>
-        <h4>Location * </h4>
-        <input type = "text" placeholder = "input Location" value ={location} onChange={handleChangeLocation}/>
-        <h4>Time * </h4>
-        <input type = "text" placeholder = "input Time" value ={time} onChange={handleChangeTime}/>
-        <h4>Description</h4>
-        <input type = "text" placeholder = "input Description" value ={description} onChange={handleChangeDescription}/>
+        <h4> Event Name *required</h4>
+        <input type = "text" placeholder = "Name" value ={name} onChange={handleChangeName} required/>
         <h4>Date</h4> 
-        <h4> Type</h4>
+        {/* check if date is set or not, assume set for now */}
+        <input type = "date" placeholder = "input Date" value = {date} onChange = {handleChangeDate}></input>
+        <h4>Time </h4>
+        <input type = "time" placeholder = "Time" value ={time} onChange={handleChangeTime}/>
+        <h4>Location </h4>
+        {/* google maps api */}
+        <input type = "text" placeholder = "Location" value ={location} onChange={handleChangeLocation}/>
+        <h4>Description</h4>
+        <input type = "text" placeholder = "Description" value ={description} onChange={handleChangeDescription}/>
+        {/* logic so it throws error if no event name */}
         <button type = "submit" value = "Create Event" onClick = {handleSubmit}>Submit</button>
         {/* <h4> Guests</h4> */}
       </div>
