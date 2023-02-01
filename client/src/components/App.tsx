@@ -9,6 +9,7 @@ import EventDashboard from "./pages/EventDashboard";
 import Home from "./pages/Home";
 import EventDisplay from "./pages/EventDisplay";
 import EventChange from "./pages/EventChange";
+import About from "./pages/About";
 
 import { socket } from "../client-socket";
 import User from "../../../shared/User";
@@ -63,6 +64,7 @@ const App = () => {
         <EventDisplay path="/event/:id" />
         <EventChange path="/editevent/:id"/>
         <Test path="/test" />
+        {/* <About path="/about"/> */}
         <NotFound default={true} />
       </Router>
     </>

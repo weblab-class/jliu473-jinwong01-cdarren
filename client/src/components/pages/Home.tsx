@@ -22,12 +22,11 @@ type Props = RouteComponentProps & {
 const Home = (props: Props) => {
   //states
   const [name, setName] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date(2022, 12, 12));
+  const [dateChanged, setDateChanged] = useState(false);
   const [time, setTime] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
-
-  const [id, setId] = useState("");
 
   //called whenever user type in name input box
   const handleChangeName = (event) => {
@@ -44,6 +43,7 @@ const Home = (props: Props) => {
 
   const handleChangeDate = (event) => {
     setDate(event.target.value);
+    setDateChanged(true);
   };
 
   const handleChangeDescription = (event) => {
@@ -56,26 +56,33 @@ const Home = (props: Props) => {
       alert("Event Name is required");
       return;
     }
-    const body = { name: name, date: date, location: location, time: time, description: description };
+    if (!props.userId){
+      alert("Please sign in!");
+      return;
+    }
+    let body;
+    if (dateChanged){
+      body = { name: name, date: date, location: location, time: time, description: description };
+    }
+    else{
+      body = { name: name, location: location, time: time, description: description };
+    }
     event.preventDefault();
     post("/api/event", body).then((comment) => {
-      console.log(comment);
-      console.log(comment._id);
       navigate(`/event/${comment._id}`);
-      // setId(comment._id);
     });
   };
 
-  // //call when mounted
-  // useEffect(() => {
-  //   document.title = "Event";
-  // }, []);
+  //call when mounted
+  useEffect(() => {
+    document.title = "Event";
+  }, []);
 
   return (
     <div>
-      <div>
+      <div className = "Event-Container">
         <h1 className="Title"> Let's plan your gathering!</h1>
-        <h4 className="Input-description"> Event Name</h4>
+        <h4 className="Input-description"> Event Name *</h4>
         <input
           className="Input-box"
           type="text"
@@ -90,7 +97,7 @@ const Home = (props: Props) => {
           className="Input-box"
           type="date"
           placeholder="input Date"
-          value={date}
+          value={date.toString()}
           onChange={handleChangeDate}
         ></input>
         <h4 className="Input-description">Time </h4>

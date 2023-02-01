@@ -30,6 +30,9 @@ const NavBar = (props: Props) => {
       <Link to="/" className="NavBar-title u-bold u-inlineBlock">
         Gatherify
       </Link>
+      {/* <Link to="/about" className="NavBar-title u-bold u-inlineBlock">
+      About
+      </Link> */}
       <div className="NavBar-linkContainer u-inlineBlock">
         <div className="u-inlineBlock">
           <Router> 

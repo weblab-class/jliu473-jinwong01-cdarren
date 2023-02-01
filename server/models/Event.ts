@@ -2,6 +2,7 @@ import { Schema, model, Document } from "mongoose";
 
 const EventSchema = new Schema({
   location: String,
+  date: String,
   type: String,
   time: String,
   description: String,

@@ -29,6 +29,15 @@
   margin-left: 18px;
 }
 
+.Create-event-button:hover {
+  background-color : rgb(224, 68, 68);
+}
+
 .Input-box::placeholder {
   color: #ef5c5c;
+}
+
+.Event-Container {
+  width: 50%;
+  margin: auto;
 }

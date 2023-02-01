@@ -38,7 +38,11 @@
   background-color: #ef5c5c;
   font-size: large;
   color: white;
-  border-radius: 8px;
+  border-radius: 12px;
+}
+
+.Link-button:hover {
+  background-color : rgb(224, 68, 68);
 }
 
 .Invite-link-content {
