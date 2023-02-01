@@ -6,7 +6,10 @@ import "./InviteCard.css";
 type Props = RouteComponentProps & {
   name: String;
   description: String;
+  time: String;
+  date:String;
   guestList: String[];
+
 };
 
 /**
@@ -18,6 +21,14 @@ const InviteCard = (props: Props) => {
     <div className="InviteCard-container">
       <div className="InviteCard-title">{props.name}</div>
       <div className="InviteCard-subContainer">
+        <div className="InviteCard-textContainer">
+          <div className="InviteCard-subtitle">Event Date:</div>
+          <div className="u-textCenter">{props.date}</div>
+        </div>
+        <div className="InviteCard-textContainer">
+          <div className="InviteCard-subtitle">Event Time:</div>
+          <div className="u-textCenter">{props.time}</div>
+        </div>
         <div className="InviteCard-textContainer">
           <div className="InviteCard-subtitle">Event Descripton</div>
           <div className="u-textCenter">{props.description}</div>

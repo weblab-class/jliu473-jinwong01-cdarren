@@ -65,19 +65,6 @@ const Home = (props: Props) => {
       // setId(comment._id);
     });
   };
-  //autocomplete location input field
-  // useEffect(() => {
-  //   const autocompleteService = new window.google.maps.places.AutocompleteService();
-  //   autocompleteService.getPlacePredictions(
-  //     { input: location },
-  //     (predictions, status) => {
-  //       if (status !== window.google.maps.places.PlacesServiceStatus.OK) {
-  //         return;
-  //       }
-  //       setPlaces(predictions.map((prediction) => prediction.description));
-  //     }
-  //   );
-  // }, [location]);
 
   // //call when mounted
   // useEffect(() => {

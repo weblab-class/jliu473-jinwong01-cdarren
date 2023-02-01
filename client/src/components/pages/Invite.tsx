@@ -22,6 +22,14 @@ const Invite = (props) => {
   const [accepted, setAccepted] = useState(false);
   const [declined, setDeclined] = useState(false);
 
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [location, setLocation] = useState("");
+  const [description, setDescription] = useState("");
+
+
+
   const loadGuestList = () => {
     get("/api/guests", { event_id: props.id }).then((guests) => {
       const guestNames = guests.map((guest) => guest.name);
@@ -34,6 +42,15 @@ const Invite = (props) => {
       setEventName(event.name);
       setEventDescription(event.description);
     });
+
+    get("/api/events", { id: props.id }).then((event) => {
+      setName(event.name);
+      setDate(event.date);
+      setTime(event.time);
+      setLocation(event.location);
+      setDescription(event.description);
+    });
+
   }, []);
 
   useEffect(() => {
@@ -59,7 +76,7 @@ const Invite = (props) => {
 
   return (
     <div className="Invite-container">
-      <InviteCard name={eventName} description={eventDescription} guestList={guestList} />
+      <InviteCard name={name} date = {date} time = {time} description={description} guestList={guestList} />
       <InviteButtons
         acceptInvite={acceptInvite}
         declineInvite={declineInvite}
