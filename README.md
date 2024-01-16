@@ -10,8 +10,8 @@ Gatherify is a user-friendly website for event creation and invitation. It offer
 ![image](https://github.com/weblab-class/jliu473-jinwong01-cdarren/assets/120694276/081f27da-673d-4405-9d5b-b377f250bb45)
 
 # Links: 
-[Design Document]([url](https://docs.google.com/document/d/1g-bXLr8UO42HDgAfFCyfsVBnmkwYqKfE1W28yO5zXek/edit?usp=sharing)https://docs.google.com/document/d/1g-bXLr8UO42HDgAfFCyfsVBnmkwYqKfE1W28yO5zXek/edit?usp=sharing)
-[Design Slides]([url](https://docs.google.com/presentation/d/1uxIiyStIwSSvVreXjd5kB0ZB-hvAQ6iZb3KPsZW9wT4/edit?usp=sharing)https://docs.google.com/presentation/d/1uxIiyStIwSSvVreXjd5kB0ZB-hvAQ6iZb3KPsZW9wT4/edit?usp=sharing)
+[Design Document](https://docs.google.com/document/d/1g-bXLr8UO42HDgAfFCyfsVBnmkwYqKfE1W28yO5zXek/edit?usp=sharing)
+[Design Slides](https://docs.google.com/presentation/d/1uxIiyStIwSSvVreXjd5kB0ZB-hvAQ6iZb3KPsZW9wT4/edit?usp=sharing)
 
 
 
