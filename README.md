@@ -6,9 +6,11 @@ Gatherify is a user-friendly website for event creation and invitation. It offer
 
 
 # Tools
-Gatherify Uses
+
 Frontend: Typescript, React, CSS, HTML
+
 Backend: Typescript, Mongoose, MongoDB, Node.js, Express.js 
+
 Deployment: Heroku
 
 # Links: 
