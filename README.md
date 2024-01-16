@@ -4,7 +4,7 @@ Create your own events, edit your events, and invite others with Gatherify!
 
 Gatherify is a user-friendly website for event creation and invitation. It offers a simple platform for users to plan events and invite friends, family, and colleagues with ease. Whether it's a birthday party, a business meeting or a weekend get-together, Gatherify is the perfect solution for organizing your next gathering!
 
-[Gatherify](Gatherify)
+[Gatherify](https://gather.herokuapp.com/)
 
 # Tools
 
